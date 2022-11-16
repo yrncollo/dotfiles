@@ -1,0 +1,11 @@
+call plug#begin('~/.vim/plugged')
+"plugins
+Plug 'wakatime/vim-wakatime'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'dense-analysis/ale'
+Plug 'nvie/vim-flake8'
+Plug 'gruvbox-community/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-snippets'
+call plug#end()
