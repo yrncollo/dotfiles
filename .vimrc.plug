@@ -8,4 +8,6 @@ Plug 'nvie/vim-flake8'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-snippets'
+Plug 'vim-syntastic/syntastic'
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 call plug#end()
