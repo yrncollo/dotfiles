@@ -306,7 +306,6 @@ let g:syntastic_javascript_standard_exec = 'semistandard'
 "autocmd bufwritepost *.js silent !semistandard % --fix
 "set autoread
 
-
 " syntastic
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -318,7 +317,8 @@ let g:syntastic_javascript_standard_exec = 'semistandard'
 "let g:syntastic_check_on_wq = 0
 
 
-
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
 " ale linters for javascript
 let g:ale_linters = {
 \   'javascript': ['standard'],
@@ -328,3 +328,16 @@ let g:ale_fixers = {'javascript': ['standard']}
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
+"Css 
+autocmd FileType scss setl iskeyword+=@-@
+
+
+" leader keys
+let mapleader = "," " map leader to comma
+"inoremap <c-n> <Esc>:Lex<cr>:vertical resize 30<cr>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
