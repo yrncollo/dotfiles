@@ -12,7 +12,11 @@ Plug 'vim-syntastic/syntastic'
 Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0'}
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
+
+" Add Lua configuration
+runtime! lua/*.lua
 
 set bs=2 "make backspace behave like normal backspace
 filetype off                  " required
@@ -91,7 +95,7 @@ nnoremap <C-l> <C-w>l
 "--------------fold------========-----------
 set foldmethod=manual
 autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+"autocmd BufWinEnter *.* silent loadview
 
 "-------===========----------=========-------=====Python synatax -------========---------
 syntax on
