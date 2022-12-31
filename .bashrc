@@ -69,12 +69,12 @@ if [ "$color_prompt" = yes ]; then
 
     prompt_color='\[\033[;32m\]'
     info_color='\[\033[1;34m\]'
-    prompt_symbol=㉿
+    prompt_symbol=💀
     if [ "$EUID" -eq 0 ]; then # Change prompt colors for root user
         prompt_color='\[\033[;94m\]'
         info_color='\[\033[1;31m\]'
         # Skull emoji for root terminal
-        #prompt_symbol=💀
+        #prompt_symbol=💀㉿
     fi
     case "$PROMPT_ALTERNATIVE" in
         twoline)
@@ -155,3 +155,4 @@ if ! shopt -oq posix; then
   fi
 fi
 alias config='/usr/bin/git --git-dir=/home/yrncollo/dotfiles/ --work-tree=/home/yrncollo'
+alias clip="xclip -sel clip"
