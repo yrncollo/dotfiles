@@ -124,9 +124,9 @@ let g:ale_linters = {'python': ['flake8']}
 
 "===========----------------========Openning and closing bracket======---------=======
 """ Automatically closing braces
-""inoremap { {}<Esc>ha
-""inoremap ( ()<Esc>ha
-""inoremap [ []<Esc>ha
+inoremap { {}<Esc>ha
+inoremap ( ()<Esc>ha
+inoremap [ []<Esc>ha
 ""inoremap " ""<Esc>ha
 ""inoremap ' ''<Esc>ha
 ""inoremap ` ``<Esc>ha
