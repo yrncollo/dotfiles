@@ -13,6 +13,7 @@ Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
