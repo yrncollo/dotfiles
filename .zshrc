@@ -97,7 +97,7 @@ configure_prompt() {
     #[ "$EUID" -eq 0 ] && prompt_symbol=㉿💀
     case "$PROMPT_ALTERNATIVE" in
         twoline)
-            PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]$(parse_git_branch)\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+		PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]$(parse_git_branch)\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
 
 
 	    ##$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]$(parse_git_branch)\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
@@ -263,8 +263,12 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 alias config='/usr/bin/git --git-dir=/home/yrncollo/dotfiles/ --work-tree=/home/yrncollo'
 alias clip="xclip -sel clip"
+alias server="python3 -m http.server"
+alias thm="sudo openvpn ~/Documents/tryhackme/Yrncollo.ovpn"
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (%F{red}\1%F{reset})/'
 }
 
+
+source ~/antigen/antigen.zsh 
