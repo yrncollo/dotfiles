@@ -14,6 +14,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-fugitive'
+"Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -78,6 +79,7 @@ set autoindent
 set smartindent
 set cindent
 
+let g:ale_linters = {'c':['betty-style', 'betty-doc', 'betty', 'gcc']}
 "-=-=-=-=-=-=End of betty styling-=-=-=-=-=-
 
 "set to change buffer without saving
@@ -310,8 +312,8 @@ highlight CocHintFloat ctermfg=Red  guifg=#ff0000
 
 
 "Javascript
-let g:syntastic_javascript_checkers=['standard']
-let g:syntastic_javascript_standard_exec = 'semistandard'
+"let g:syntastic_javascript_checkers=['standard']
+"let g:syntastic_javascript_standard_exec = 'semistandard'
 
 " For automatic formatting on save
 "autocmd bufwritepost *.js silent !semistandard % --fix
@@ -331,10 +333,10 @@ let g:syntastic_javascript_standard_exec = 'semistandard'
 
 
 " ale linters for javascript
-let g:ale_linters = {
-\   'javascript': ['standard'],
-\}
-let g:ale_fixers = {'javascript': ['standard']}
+"let g:ale_linters = {
+"\   'javascript': ['standard'],
+"\}
+"let g:ale_fixers = {'javascript': ['standard']}
 
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
@@ -356,3 +358,7 @@ color gruvbox
 highlight Normal     ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
+
+
+map <leader>d :ALEDisable<CR>
+map <leader>a :ALEEnable<CR>
