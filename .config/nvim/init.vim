@@ -1,5 +1,4 @@
 call plug#begin()
-
 Plug 'wakatime/vim-wakatime'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
@@ -19,7 +18,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Add Lua configuration
-runtime! lua/*.lua
+runtime! ./lua/treesitter.lua 
 
 set bs=2 "make backspace behave like normal backspace
 filetype off                  " required
