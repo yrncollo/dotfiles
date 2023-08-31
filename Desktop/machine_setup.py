@@ -48,5 +48,10 @@ def other_apps():
     os.system('yay -S notion-app-enhanced')
 
 
+def cybersec_tools():
+    '''this are some default applications needed for the system'''
+    os.system(f'sudo {arch} -S nmap')
+
+
 # os_check()
 # install_packages()
