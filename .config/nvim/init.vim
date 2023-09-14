@@ -18,7 +18,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Add Lua configuration
-runtime! ./lua/treesitter.lua 
+runtime! ./lua/*.lua 
 
 set bs=2 "make backspace behave like normal backspace
 filetype off                  " required
