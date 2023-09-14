@@ -18,7 +18,7 @@ def os_check():
 def install_packages():
     '''installing packages'''
     os.system(f'sudo {arch} -S git')
-    os.system(f'sudo {arch} -S nvim')
+    os.system(f'sudo {arch} -S neovim')
     os.system(f'sudo {arch} -S xclip')
     os.system(f'sudo {arch} -S zsh-autosuggestions')
     os.system(f'sudo {arch} -S zsh-syntax-highlighting')
@@ -54,4 +54,6 @@ def cybersec_tools():
 
 
 # os_check()
-# install_packages()
+install_packages()
+vim_setup()
+other_apps()
