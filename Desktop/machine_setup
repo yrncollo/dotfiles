@@ -82,8 +82,8 @@ if [[ "$os" == "unsupported" ]]; then
     echo "Unsupported operating system!"
 else
     # Define package variables
-    terminal_packages=(vim git neovim xclip zsh-autosuggestions zsh-syntax-highlighting)
-    vim_setup=(python-jedi flake8 python-pylint yarn)
+    terminal_packages=(git xclip zsh-autosuggestions zsh-syntax-highlighting)
+    vim_setup=(vim neovim python-jedi flake8 python-pylint yarn)
     other_apps=(discord chrome firefox notion-app-enhanced )
 
 
