@@ -1,0 +1,94 @@
+#!/bin/bash
+
+display_small_banner() {
+    local message=$1
+    echo
+    echo "===================="
+    echo "$message"
+    echo "===================="
+    echo
+}
+
+# Function to install packages
+install_packages() {
+    local os=$1
+    shift  # Remove the first argument (os) from the arguments array
+    local packages=("$@")  # Use the remaining arguments as package names
+
+    for program in "${packages[@]}"; do
+        if ! command -v $program &> /dev/null; then
+            display_small_banner "Installing $program..."
+            if install_program $os $program; then
+                echo "$program installed successfully!"
+            else
+                echo "Error installing $program!"
+            fi
+        else
+            display_small_banner "$program is already installed."
+        fi
+    done
+}
+
+
+# Function to detect the operating system
+get_os() {
+    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        if command -v pacman &> /dev/null; then
+            echo "arch"
+        elif command -v apt-get &> /dev/null; then
+            echo "debian"
+        elif command -v yum &> /dev/null; then
+            echo "centos"
+        else
+            echo "unsupported"
+        fi
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "macos"
+    else
+        echo "unsupported"
+    fi
+}
+
+# Function to install programs based on the operating system
+install_program() {
+    local os=$1
+    local program=$2
+
+    case $os in
+        "debian")
+            sudo apt-get install -y $program
+            ;;
+        "centos")
+            sudo yum install -y $program
+            ;;
+        "arch")
+            sudo pacman -S --noconfirm $program
+            ;;
+        "macos")
+            brew install $program
+            ;;
+        *)
+            echo "Unsupported operating system!"
+            return 1
+            ;;
+    esac
+}
+
+# Main script
+os=$(get_os)
+
+if [[ "$os" == "unsupported" ]]; then
+    echo "Unsupported operating system!"
+else
+    # Define package variables
+    terminal_packages=(vim git neovim xclip zsh-autosuggestions zsh-syntax-highlighting)
+    vim_setup=(python-jedi flake8 python-pylint yarn)
+    other_apps=(discord chrome firefox notion-app-enhanced )
+
+
+    # Install packages
+    install_packages $os "${terminal_packages[@]}"
+    install_packages $os "${vim_setup[@]}"
+    install_packages $os "${other_apps[@]}"
+fi
+
