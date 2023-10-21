@@ -1,4 +1,5 @@
 #!/bin/bash
+#@author: YrnCollo
 
 display_small_banner() {
     local message=$1
