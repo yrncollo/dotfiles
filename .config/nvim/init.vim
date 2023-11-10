@@ -9,11 +9,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-snippets'
 Plug 'vim-syntastic/syntastic'
 Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0'}
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-tmux-navigator'
 "Plug 'github/copilot.vim'
+Plug 'nvim-neorg/neorg'
 
 call plug#end()
 
@@ -220,7 +222,7 @@ function! ShowDocumentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -361,3 +363,49 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 
 map <leader>d :ALEDisable<CR>
 map <leader>a :ALEEnable<CR>
+
+autocmd BufEnter * TSBufDisable highlight
+let g:ts_install_types = ["javascript", "markdown", "markdown_inline", "typescript", "c", "lua", "rust"]
+
+" Install parsers synchronously (only applied to `ensure_installed`)
+let g:ts_sync_install = 0
+
+" Automatically install missing parsers when entering buffer
+" Recommendation: set to 0 if you don't have `tree-sitter` CLI installed locally
+let g:ts_auto_install = 1
+
+" Highlighting configuration
+let g:ts_highlight_enabled = 1
+
+" Setting this to 1 will run `:h syntax` and tree-sitter at the same time.
+" Set this to `1` if you depend on 'syntax' being enabled (like for indentation).
+" Using this option may slow down your editor, and you may see some duplicate highlights.
+" Instead of 1, it can also be a list of languages
+let g:ts_additional_vim_regex_highlighting = 0
+
+" Plug 'christoomey/vim-tmux-navigator'
+let g:tmux_navigator_no_mappings = 1
+
+noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
+noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
+noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
+" noremap <silent> {Previous-Mapping} :<C-U>TmuxNavigatePrevious<cr>
+
+
+"neorg configurations 
+lua << EOF
+require('neorg').setup {
+    load = {
+        ["core.defaults"] = {}, -- Loads default behaviour
+        ["core.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+                workspaces = {
+                    notes = "~/notes",
+                },
+            },
+        },
+    },
+}
+EOF
