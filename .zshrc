@@ -92,7 +92,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 configure_prompt() {
-    prompt_symbol=💀
+    prompt_symbol=@
     # Skull emoji for root terminal
     #[ "$EUID" -eq 0 ] && prompt_symbol=㉿💀
     case "$PROMPT_ALTERNATIVE" in
@@ -266,6 +266,12 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias clip="xclip -sel clip"
 alias server="python3 -m http.server"
 alias thm="sudo openvpn ~/Documents/tryhackme/Yrncollo.ovpn"
+alias bt="bluetoothctl power on && bluetoothctl connect 97:78:9E:7B:B0:CC"
+alias create="gh issue create"
+alias list="gh issue list"
+alias comment="gh issue comment"
+alias rotate="xrandr --output DP-2 --rotate"
+alias vi="nvim"
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (%F{red}\1%F{reset})/'
