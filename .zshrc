@@ -272,7 +272,14 @@ alias list="gh issue list"
 alias comment="gh issue comment"
 alias rotate="xrandr --output DP-2 --rotate"
 alias vi="nvim"
+alias wq="exit"
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (%F{red}\1%F{reset})/'
 }
+
+# enable vim mode
+bindkey -v
+
+bindkey -M viins 'jj' vi-cmd-mode
+
