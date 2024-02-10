@@ -14,8 +14,15 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 Plug 'nvim-neorg/neorg'
+
+" plugins for js and React 
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 
@@ -92,7 +99,7 @@ inoremap <c-n> <Esc>:Lex<cr>:vertical resize 30<cr>
 nnoremap <c-n> <Esc>:Lex<cr>:vertical resize 30<cr>
 
 "Remap split navigations to just CTRL + hjkl
-nnoremap <C-h> <C-w>h
+nnoremap <Alt> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
@@ -364,6 +371,13 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 map <leader>d :ALEDisable<CR>
 map <leader>a :ALEEnable<CR>
 
+
+" remapping split navigation from ctrl + w + s to <leader> + j and ctrl + w + v to <leader> + l 
+map <leader>l <C-w>s
+map <leader>j <C-w>v
+" remapping closing split navigation from ctrl + w + q to <leader> + q 
+map <leader>q <C-w>q
+
 autocmd BufEnter * TSBufDisable highlight
 let g:ts_install_types = ["javascript", "markdown", "markdown_inline", "typescript", "c", "lua", "rust"]
 
@@ -393,6 +407,15 @@ noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
 " noremap <silent> {Previous-Mapping} :<C-U>TmuxNavigatePrevious<cr>
 
 
+" copilot configurations
+imap <silent><script><expr> <C-Space> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
+" vim-javascript
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+
 "neorg configurations 
 lua << EOF
 require('neorg').setup {
@@ -409,3 +432,4 @@ require('neorg').setup {
     },
 }
 EOF
+

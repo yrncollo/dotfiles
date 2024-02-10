@@ -97,7 +97,7 @@ configure_prompt() {
     #[ "$EUID" -eq 0 ] && prompt_symbol=㉿💀
     case "$PROMPT_ALTERNATIVE" in
         twoline)
-		PROMPT=$'%F{yellow}%B> %c%f%b$(parse_git_branch) '
+		PROMPT=$'%F{yellow}%B-> %c%f%b$(parse_git_branch) '
 		# PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]$(parse_git_branch)\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
 
 
@@ -267,11 +267,14 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias clip="xclip -sel clip"
 alias server="python3 -m http.server"
 alias thm="sudo openvpn ~/Documents/tryhackme/Yrncollo.ovpn"
+alias academy="sudo openvpn ~/Documents/academy/academy-regular.ovpn"
+alias htb="sudo openvpn ~/Documents/htb/lab_YrnCollo.ovpn"
 alias bt="bluetoothctl power on && bluetoothctl connect 97:78:9E:7B:B0:CC"
 alias create="gh issue create"
 alias list="gh issue list"
 alias comment="gh issue comment"
 alias rotate="xrandr --output DP-2 --rotate"
+# alias unda="rotate left; rotate normal"
 alias vi="nvim"
 alias wq="exit"
 

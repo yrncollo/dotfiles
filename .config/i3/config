@@ -196,7 +196,7 @@ bar {
 }
 
 
-exec_always feh --bg-fill $HOME/Pictures/wallpapers/0041.jpg
+exec_always feh --bg-fill $HOME/Pictures/new_wallpapers/eqszcwjcdgeb1.png
 exec --no-startup-id picom -CGb
 
 ## Screenshots
@@ -211,4 +211,5 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection c
 
 set $fm eDP-1
 set $sm DP-1
-exec_always xrandr --output DP-2 --mode 1024x768 
+exec xrandr --output DP-2 --mode 1024x768 
+exec --no-startup-id i3-battery-popup -L 19
