@@ -196,7 +196,8 @@ bar {
 }
 
 
-exec_always feh --bg-fill $HOME/Pictures/new_wallpapers/eqszcwjcdgeb1.png
+# exec_always feh --bg-fill $HOME/Pictures/new_wallpapers/eqszcwjcdgeb1.png
+exec_always feh --bg-fill $HOME/Pictures/wallpapers/0279.jpg
 exec --no-startup-id picom -CGb
 
 ## Screenshots
