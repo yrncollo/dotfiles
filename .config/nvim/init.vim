@@ -23,6 +23,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
+Plug 'mbbill/undotree'
+
+" Plugins for rust
+
 
 call plug#end()
 
@@ -153,6 +157,11 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 set scrolloff=8
 
@@ -361,12 +370,12 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
 "set background=dark " or light if you want light mode
-"colorscheme gruvbox
+colorscheme gruvbox
+"set background=dark
 color gruvbox
 highlight Normal     ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
-
 
 map <leader>d :ALEDisable<CR>
 map <leader>a :ALEEnable<CR>
@@ -408,13 +417,19 @@ noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
 
 
 " copilot configurations
-imap <silent><script><expr> <C-Space> copilot#Accept("\<CR>")
+imap <silent><script><expr> <A-Space> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+map <leader>t :Copilot disable<CR>
+map <leader>r :Copilot enable<CR>
+autocmd VimEnter * Copilot disable
+
+map <leader>u :UndotreeToggle<CR>
 
 " vim-javascript
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
+nmap <leader>y "+y
 
 "neorg configurations 
 lua << EOF
