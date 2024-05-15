@@ -276,7 +276,10 @@ alias comment="gh issue comment"
 alias rotate="xrandr --output DP-2 --rotate"
 # alias unda="rotate left; rotate normal"
 alias vi="nvim"
+alias nano="nvim"
 alias wq="exit"
+alias zima="shutdown -h now"
+alias ff="nvim \$(fzf --preview='cat {}')"
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (%F{red}\1%F{reset})/'
@@ -287,3 +290,4 @@ bindkey -v
 
 bindkey -M viins 'jj' vi-cmd-mode
 
+export PATH="$HOME/.cargo/bin:$PATH"
