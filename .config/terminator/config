@@ -1,0 +1,32 @@
+[global_config]
+  window_state = maximise
+  borderless = True
+  extra_styling = False
+  tab_position = hidden
+  scroll_tabbar = True
+  homogeneous_tabbar = False
+[keybindings]
+  go_up = <Alt>h
+  go_down = <Alt>l
+  go_left = <Alt>j
+  go_right = <Alt>k
+  split_horiz = F12
+  split_vert = F10
+  close_term = F2
+  close_window = <Primary><Shift>w
+  layout_launcher = <Alt>grave
+[profiles]
+  [[default]]
+    background_darkness = 0.39
+    background_type = transparent
+    show_titlebar = False
+    scrollbar_position = hidden
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
