@@ -27,4 +27,19 @@ vim.keymap.set("n", "C-j", "<C-w>j")
 vim.keymap.set("n", "C-k", "<C-w>k")
 vim.keymap.set("n", "C-l", "<C-w>l")
 
---Disable the arrow keys
+
+-- View file folder structure
+vim.keymap.set('i', '<C-n>', '<Esc>:Lex<CR>:vertical resize 30<CR>')
+vim.keymap.set('n', '<C-n>', '<Esc>:Lex<CR>:vertical resize 30<CR>')
+
+
+-- fold 
+vim.keymap.set("n", "<space>", "za")
+
+-- Automatic closing braces
+vim.keymap.set("i", "{", "{}<Esc>ha")
+vim.keymap.set("i", "(", "()<Esc>ha")
+vim.keymap.set("i", "[", "[]<Esc>ha")
+
+-- copy to the clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
