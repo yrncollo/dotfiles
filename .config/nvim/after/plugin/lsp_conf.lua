@@ -3,6 +3,7 @@ local keybindings = require('yrncollo.lsp_keybindings')  -- Import the keybindin
 
 local on_attach = keybindings.on_attach  -- Use the on_attach function from keybindings.lua
 
+local cmp = require('cmp')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 require('mason-lspconfig').setup_handlers({
@@ -30,5 +31,25 @@ require('mason-lspconfig').setup_handlers({
     })
   end,
   -- Add more specific handlers for other servers if needed.
+    ['rust_analyzer'] = function()
+    lspconfig.rust_analyzer.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        ["rust-analyzer"] = {
+          assist = {
+            importGranularity = "module",
+            importPrefix = "by_self",
+          },
+          cargo = {
+            loadOutDirsFromCheck = true
+          },
+          procMacro = {
+            enable = true
+          }
+        }
+      }
+    })
+  end,
 })
 

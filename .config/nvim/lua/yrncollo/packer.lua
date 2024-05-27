@@ -24,5 +24,17 @@ return require('packer').startup(function(use)
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
   use("neovim/nvim-lspconfig")
+  use("christoomey/vim-tmux-navigator")
+
+  use("hrsh7th/nvim-cmp" )
+  use("hrsh7th/cmp-nvim-lsp" )
+  use("hrsh7th/cmp-buffer" )-- source for text in buffer
+  use("hrsh7th/cmp-path" ) -- source for file system paths
+  use("L3MON4D3/LuaSnip" ) -- for autocompletion
+  use("saadparwaiz1/cmp_luasnip" ) -- useful snippets
+  use("rafamadriz/friendly-snippets" ) -- vs-code like pictograms
+  use("onsails/lspkind.nvim" ) -- vs-code like pictograms
+
+
 
 end)
