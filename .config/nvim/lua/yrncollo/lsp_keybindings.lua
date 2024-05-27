@@ -23,6 +23,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format({ async = true }) end, bufopts)
+  vim.api.nvim_set_keymap('n', '<Tab>', '<cmd>lua vim.diagnostic.open_float()<CR>', opts )
 end
 
 -- Export the on_attach function to be used in lspconfig_conf.lua

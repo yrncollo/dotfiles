@@ -26,6 +26,8 @@ return require('packer').startup(function(use)
   use("neovim/nvim-lspconfig")
   use("christoomey/vim-tmux-navigator")
 
+
+  -- code completion
   use("hrsh7th/nvim-cmp" )
   use("hrsh7th/cmp-nvim-lsp" )
   use("hrsh7th/cmp-buffer" )-- source for text in buffer
@@ -35,6 +37,8 @@ return require('packer').startup(function(use)
   use("rafamadriz/friendly-snippets" ) -- vs-code like pictograms
   use("onsails/lspkind.nvim" ) -- vs-code like pictograms
 
-
+  -- copilot
+  use ("github/copilot.vim")
+  use ("wakatime/vim-wakatime")
 
 end)
