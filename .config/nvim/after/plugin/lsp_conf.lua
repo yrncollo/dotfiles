@@ -51,5 +51,12 @@ require('mason-lspconfig').setup_handlers({
       }
     })
   end,
+  ['html'] = function()
+	  lspconfig.html.setup({
+		  on_attach = on_attach,
+		  capabilities = capabilities,
+	  })
+  	
+  end
 })
 

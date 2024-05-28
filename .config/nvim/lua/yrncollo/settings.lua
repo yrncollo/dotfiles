@@ -78,7 +78,7 @@ vim.opt.scrolloff = 8
 vim.g.python3_host_prog = '/usr/bin/python'
 
 
-
+vim.api.nvim_set_keymap('n', '<Tab>', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
 
 
 

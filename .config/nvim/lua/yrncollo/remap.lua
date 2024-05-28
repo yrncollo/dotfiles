@@ -43,3 +43,5 @@ vim.keymap.set("i", "[", "[]<Esc>ha")
 
 -- copy to the clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
+
+
