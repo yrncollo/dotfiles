@@ -37,7 +37,8 @@ vim.keymap.set('n', '<C-n>', '<Esc>:Lex<CR>:vertical resize 30<CR>')
 vim.keymap.set("n", "<space>", "za")
 
 -- Automatic closing braces
-vim.keymap.set("i", "{", "{}<Esc>ha")
+--vim.keymap.set("i", "{", "{}<Esc>i<CR><Esc>O")
+vim.keymap.set("i", "{", "{}<Esc>ha<CR><Esc>O")
 vim.keymap.set("i", "(", "()<Esc>ha")
 vim.keymap.set("i", "[", "[]<Esc>ha")
 
@@ -45,3 +46,4 @@ vim.keymap.set("i", "[", "[]<Esc>ha")
 vim.keymap.set("n", "<leader>y", "\"+y")
 
 
+vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>', { silent = true })

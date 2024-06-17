@@ -16,7 +16,7 @@ require('mason-lspconfig').setup_handlers({
 
   ['lua_ls'] = function()
     lspconfig.lua_ls.setup({
-      on_attach = on_attach,
+      on_attach = keybindings.on_attach,
       capabilities = capabilities,
       settings = {
         Lua = {
@@ -33,7 +33,7 @@ require('mason-lspconfig').setup_handlers({
   -- Add more specific handlers for other servers if needed.
     ['rust_analyzer'] = function()
     lspconfig.rust_analyzer.setup({
-      on_attach = on_attach,
+      on_attach = keybindings.on_attach,
       capabilities = capabilities,
       settings = {
         ["rust-analyzer"] = {
