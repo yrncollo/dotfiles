@@ -49,7 +49,9 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec alacritty
+# Start google chrome
+bindsym $mod+g exec google-chrome-stable
 
 # kill focused window
 bindsym $mod+q kill
