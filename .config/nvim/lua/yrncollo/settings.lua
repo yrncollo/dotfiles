@@ -80,5 +80,21 @@ vim.g.python3_host_prog = '/usr/bin/python'
 
 vim.api.nvim_set_keymap('n', '<Tab>', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
 
+-- Create an autocommand group to avoid duplicate autocmds
+vim.api.nvim_create_augroup('vue_settings', { clear = true })
 
+-- Set Vue-specific options when opening or creating Vue files
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  group = 'vue_settings',
+  pattern = "*.vue",
+  callback = function()
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.expandtab = true
+    vim.bo.autoindent = true
+    vim.bo.fileformat = "unix"
+    vim.o.shiftround = true  -- Global option for shiftround
+  end
+})
 

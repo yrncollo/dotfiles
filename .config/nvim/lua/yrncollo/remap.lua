@@ -47,3 +47,6 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 
 
 vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>', { silent = true })
+
+-- Map <leader>b to insert {{ }} and place cursor in {}}{the middl{}{e
+vim.api.nvim_set_keymap('n', '<leader>b', 'i{{}}<Esc>hi', { noremap = true, silent = true })

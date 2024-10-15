@@ -56,7 +56,36 @@ require('mason-lspconfig').setup_handlers({
 		  on_attach = on_attach,
 		  capabilities = capabilities,
 	  })
-  	
+  end,
+
+  ['tsserver'] = function()
+lspconfig.tsserver.setup {
+  init_options = {
+    plugins = {
+      {
+        name = '@vue/typescript-plugin',
+        location = '/usr/bin/vue-language-server',
+        languages = { 'vue' },
+      },
+    },
+  },
+}
+  end,
+  ['volar'] = function()
+lspconfig.volar.setup {
+  init_options = {
+    vue = {
+      hybridMode = false,
+    },
+  },
+}
+  end,
+  ['pyright'] = function()
+	  lspconfig.pyright.setup({
+		  on_attach = on_attach,
+		  capabilities = capabilities,
+		  filetypes ={"python"}
+	  })
   end
 })
 
