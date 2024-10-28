@@ -53,6 +53,9 @@ bindsym $mod+Return exec alacritty
 # Start google chrome
 bindsym $mod+g exec google-chrome-stable
 
+# start boomer(zoomer)
+bindsym $mod+z exec boomer
+
 # kill focused window
 bindsym $mod+q kill
 
