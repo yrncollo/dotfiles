@@ -98,3 +98,22 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   end
 })
 
+
+-- Create an autocommand group to avoid duplicate autocmds
+vim.api.nvim_create_augroup('js', { clear = true })
+
+-- Set Vue-specific options when opening or creating Vue files
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  group = 'vue_settings',
+  pattern = "*.js",
+  callback = function()
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.expandtab = true
+    vim.bo.autoindent = true
+    vim.bo.fileformat = "unix"
+    vim.o.shiftround = true  -- Global option for shiftround
+  end
+})
+
