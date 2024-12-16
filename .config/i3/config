@@ -194,10 +194,10 @@ bar {
 	font pango:Inconsolata 10
 	position top
 	tray_output none
-	status_command /usr/bin/bumblebee-status -m nic  cpu \
-		memory battery date time  \
-		-p nic.exclude=enp0s25 time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-		-t solarized-powerline
+	status_command /usr/bin/bumblebee-status -m nic network cpu \
+	memory battery date time  \
+	-p nic.exclude=lo nic.exclude=enp0s25 time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+	-t solarized-powerline
 }
 
 
