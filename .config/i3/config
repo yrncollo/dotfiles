@@ -52,6 +52,8 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 # Start google chrome
 bindsym $mod+g exec google-chrome-stable
+# Start Obsidian
+bindsym $mod+o exec obsidian
 
 # start boomer(zoomer)
 bindsym $mod+z exec boomer
