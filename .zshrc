@@ -50,8 +50,6 @@ fi
 
 
 alias history="history 0"
-        ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
-        ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
 # enable color support of ls, less and man, and also add handy aliases
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
@@ -79,10 +77,25 @@ alias comment="gh issue comment"
 alias rotate="xrandr --output DP-2 --rotate"
 # alias unda="rotate left; rotate normal"
 alias vi="nvim"
+alias t="tmux"
 alias nano="nvim"
 alias wq="exit"
 alias zima="shutdown -h now"
 alias ff="nvim \$(fzf --preview='cat {}')"
+alias tmux="TERM=xterm-256color tmux"
+alias nvimconfig="cd ~/.config/nvim/ ; nvim init.lua"
+alias act="source /home/yrncollo/Desktop/python_tasks/testing/bin/activate"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+# solana path
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+[[ -z $TERM ]] && export TERM=xterm-256color
+
+PROMPT='%n@%m %1~ %# '
+export XDG_RUNTIME_DIR=$HOME/"VirtualBox VMs"/
+export RUNLEVEL=3
+
+export CHROOT=$HOME/chroot
