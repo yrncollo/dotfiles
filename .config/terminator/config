@@ -17,8 +17,8 @@
   layout_launcher = <Alt>grave
 [profiles]
   [[default]]
-    background_darkness = 0.39
-    background_type = transparent
+    background_darkness = 0.43
+    background_type = image
     show_titlebar = False
     scrollbar_position = hidden
 [layouts]
