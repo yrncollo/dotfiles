@@ -1,5 +1,5 @@
 general.import =[
-"~/.config/alacritty/themes/themes/tokyo-night.toml"
+	"/home/yrncollo/.config/alacritty/themes/themes/iterm.toml"
 ]
 [env]
 TERM = "xterm-256color"
@@ -14,5 +14,7 @@ opacity = 0.9
 blur = true
 
 [font]
-normal.family ="Source Code Pro"
-size = 10
+normal.family ="monospace"
+size = 15
+
+
