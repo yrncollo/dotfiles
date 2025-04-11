@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -62,7 +62,7 @@ bindsym $mod+z exec boomer
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Droid Sans Mono-11'
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -193,12 +193,12 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	font pango:Inconsolata 10
+	font pango:Inconsolata 11
 	position top
 	tray_output none
-	status_command /usr/bin/bumblebee-status -m nic network cpu \
+	status_command /usr/bin/bumblebee-status -m load nic network cpu \
 	memory battery date time  \
-	-p nic.exclude=lo nic.exclude=enp0s25 time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+	-p nic.exclude=lo,enp0s31f6 nic.format="leaked IP: {ip}" time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
 	-t solarized-powerline
 }
 
