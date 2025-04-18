@@ -221,3 +221,10 @@ set $sm DP-1
 exec xrandr --output DP-2 --mode 1024x768 
 exec --no-startup-id i3-battery-popup -L 19
 exec --no-startup-id picom
+
+# Decrease brightness with F5
+bindsym F5 exec --no-startup-id brightnessctl set 5%-
+
+# Increase brightness with F6
+bindsym F6 exec --no-startup-id brightnessctl set +5%
+
