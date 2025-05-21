@@ -41,6 +41,10 @@ return require('packer').startup(function(use)
   use ("github/copilot.vim")
   use ("wakatime/vim-wakatime")
 
+
+  
+  use 'mfussenegger/nvim-jdtls' -- java lsp
+
   -- Markdown preview
 -- install without yarn or npm
 

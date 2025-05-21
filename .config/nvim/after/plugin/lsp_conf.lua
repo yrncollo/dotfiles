@@ -58,19 +58,20 @@ require('mason-lspconfig').setup_handlers({
 	  })
   end,
 
-  ['tsserver'] = function()
-lspconfig.tsserver.setup {
-  init_options = {
-    plugins = {
-      {
-        name = '@vue/typescript-plugin',
-        location = '/usr/bin/vue-language-server',
-        languages = { 'vue' },
-      },
-    },
-  },
-}
-  end,
+
+--  ['tsserver'] = function()
+--lspconfig.tsserver.setup {
+--  init_options = {
+--    plugins = {
+--      {
+--        name = '@vue/typescript-plugin',
+--        location = '/usr/bin/vue-language-server',
+--        languages = { 'vue' },
+--      },
+--    },
+--  },
+--}
+--  end,
   ['volar'] = function()
 lspconfig.volar.setup {
   init_options = {
@@ -87,5 +88,38 @@ lspconfig.volar.setup {
 		  filetypes ={"python"}
 	  })
   end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    local jdtls = require("jdtls")
+    local home = os.getenv("HOME")
+    local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+    local workspace_dir = home .. "/.local/share/eclipse/" .. project_name
+
+    local config = {
+      cmd = {
+        "java",
+        "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+        "-Dosgi.bundles.defaultStartLevel=4",
+        "-Declipse.product=org.eclipse.jdt.ls.core.product",
+        "-Dlog.level=ALL",
+        "-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
+        "-Xms1g",
+        "--add-modules=ALL-SYSTEM",
+        "--add-opens", "java.base/java.util=ALL-UNNAMED",
+        "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+        "-jar", vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+        "-configuration", home .. "/.local/share/nvim/mason/packages/jdtls/config_linux",
+        "-data", workspace_dir,
+      },
+      root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+
+    jdtls.start_or_attach(config)
+  end,
 })
 
