@@ -220,7 +220,7 @@ bar {
         status_command /usr/bin/bumblebee-status -m load nic network cpu \
         memory battery date time  \
         -p nic.include=wlan0 nic.exclude=lo,virbr,docker,vboxnet,veth,br,enp0s31f6 nic.format="leaked IP: {ip}" time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-        -t solarized-powerline
+	-t solarized-powerline-custom
 }
 # exec_always feh --bg-fill $HOME/Pictures/new_wallpapers/eqszcwjcdgeb1.png
 exec_always feh --bg-fill $HOME/Pictures/wallpapers/0279.jpg
