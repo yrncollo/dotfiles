@@ -54,6 +54,8 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+g exec google-chrome-stable
 # Start Obsidian
 bindsym $mod+o exec obsidian
+# Start brave
+bindsym $mod+b exec brave_launch
 
 # start boomer(zoomer)
 bindsym $mod+z exec boomer
@@ -62,7 +64,7 @@ bindsym $mod+z exec boomer
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Droid Sans Mono-11'
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Droid Sans Mono-11' -b
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -192,17 +194,34 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# bar {
+# 	font pango:Inconsolata 11
+# 	position top
+# 	tray_output none
+# 	status_command /usr/bin/bumblebee-status -m load nic network cpu \
+# 	memory battery date time  \
+# 	-p nic.exclude=lo,enp0s31f6,docker0,br-b0538cd890e9 nic.format="leaked IP: {ip}" time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+# 	-t solarized-powerline
+# }
+# bar {
+#         font pango:Inconsolata 11
+#         position top
+#         tray_output none
+#         status_command /usr/bin/bumblebee-status -m load nic cpu \
+#         memory battery date time  \
+#         -p nic.include=wlan0 nic.format="leaked IP: {ip}" time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+#         -t solarized-powerline
+# }
+
 bar {
-	font pango:Inconsolata 11
-	position top
-	tray_output none
-	status_command /usr/bin/bumblebee-status -m load nic network cpu \
-	memory battery date time  \
-	-p nic.exclude=lo,enp0s31f6 nic.format="leaked IP: {ip}" time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-	-t solarized-powerline
+        font pango:Inconsolata 11.9
+        position top
+        tray_output none
+        status_command /usr/bin/bumblebee-status -m load nic network cpu \
+        memory battery date time  \
+        -p nic.include=wlan0 nic.exclude=lo,virbr,docker,vboxnet,veth,br,enp0s31f6 nic.format="leaked IP: {ip}" time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+        -t solarized-powerline
 }
-
-
 # exec_always feh --bg-fill $HOME/Pictures/new_wallpapers/eqszcwjcdgeb1.png
 exec_always feh --bg-fill $HOME/Pictures/wallpapers/0279.jpg
 
@@ -218,7 +237,8 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection c
 
 set $fm eDP-1
 set $sm DP-1
-exec xrandr --output DP-2 --mode 1024x768 
+## exec xrandr --output DP-2 --mode 1024x768 
+exec xrandr --output HDMI2 --auto --right-of eDP1
 exec --no-startup-id i3-battery-popup -L 19
 exec --no-startup-id picom
 
@@ -227,4 +247,6 @@ bindsym F5 exec --no-startup-id brightnessctl set 5%-
 
 # Increase brightness with F6
 bindsym F6 exec --no-startup-id brightnessctl set +5%
+
+bindsym $mod+t exec feh --scale-down --auto-zoom $HOME/Desktop/school_work/timetable.jpeg
 
